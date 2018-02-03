@@ -10,4 +10,8 @@ class IdeaBoxApp < Sinatra::Base
 		# "<blockquote>I guess I always felt even if the world came to an end, McDonald's would still be open. <cite>Susan Beth Pfeffer</cite></blockquote>
 		# <h1>Bella li'</h1>"
 	end
+
+	not_found do
+		erb :error
+	end
 end
