@@ -27,7 +27,8 @@ class IdeaBoxApp < Sinatra::Base
 	end
 
   delete '/:id' do |id|
-    "seek and destroy!"
+    Idea.delete(id)
+    redirect '/'
   end
 
 	not_found do
