@@ -14,6 +14,7 @@ class IdeaBoxApp < Sinatra::Base
 
 	post '/' do
 		idea = Idea.new
+		idea.save
 		"Creating an IDEA!"
 	end
 
