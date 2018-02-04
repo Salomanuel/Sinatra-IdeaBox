@@ -7,16 +7,21 @@ Bundler.require
 
 class IdeaBoxApp < Sinatra::Base
 	get '/' do
-		@ideas = Idea.all
-		erb :index
+		erb :index, locals: {ideas: Idea.all }
 		# "<blockquote>I guess I always felt even if the world came to an end, McDonald's would still be open. <cite>Susan Beth Pfeffer</cite></blockquote>
 		# <h1>Bella li'</h1>"
 	end
 
 	post '/' do
+    # 1. create an Idea based on the form parameters
 		idea = Idea.new(params['idea_title'],params['idea_description'])
+
+    # 2. store it
 		idea.save
-		"Creating an IDEA!"
+
+    # 3. send the user back to the index
+		# "Creating an IDEA!"
+    redirect '/'
 	end
 
 	not_found do
