@@ -32,6 +32,7 @@ class Idea
 	end
 
 	def database
-		@database ||= YAML::Store.new "ideabox"
+		# @database ||= YAML::Store.new "ideabox"
+    Idea.database
 	end
 end
