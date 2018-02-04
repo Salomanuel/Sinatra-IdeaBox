@@ -6,6 +6,8 @@ require './idea'
 Bundler.require
 
 class IdeaBoxApp < Sinatra::Base
+  set :method_override, true
+
 	get '/' do
 		erb :index, locals: {ideas: Idea.all }
 		# "<blockquote>I guess I always felt even if the world came to an end, McDonald's would still be open. <cite>Susan Beth Pfeffer</cite></blockquote>
@@ -23,6 +25,10 @@ class IdeaBoxApp < Sinatra::Base
 		# "Creating an IDEA!"
     redirect '/'
 	end
+
+  delete '/:id' do |id|
+    "seek and destroy!"
+  end
 
 	not_found do
 		erb :error
